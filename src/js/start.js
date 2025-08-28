@@ -6,7 +6,7 @@ let nMines;
 
 let WIDTH_BOARD = 10;
 let HEIGHT_BOARD = 10;
-let MINES_PERCENT = 0.05; // 10% de las celdas serán minas
+let MINES_PERCENT = 0.15; // 10% de las celdas serán minas
 
 let GAME_OVER = false;
 let WIN = false;
