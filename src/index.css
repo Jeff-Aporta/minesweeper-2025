@@ -1,0 +1,136 @@
+body {
+  font-family: Calibri, "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
+
+  background: linear-gradient(
+    to bottom,
+    hsl(300, 100%, 10%),
+    hsl(280, 61%, 10%)
+  );
+  color: white;
+  min-height: 100vh;
+
+  div.game-container {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div.row-tools {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      width: 100%;
+
+      div.mines-count {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 5px;
+        font-size: 30px;
+      }
+    }
+
+    table.game-board-container {
+      border-radius: 20px;
+      border: 5px solid teal;
+      overflow: hidden;
+
+      tbody.game-board {
+        user-select: none;
+
+        &.game-over,
+        &.win {
+          pointer-events: none;
+        }
+
+        &.win {
+          animation: win 2s ease-in-out infinite alternate;
+        }
+
+        td.cell {
+          width: var(--side-cell);
+          height: var(--side-cell);
+
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+
+          font-size: 25px;
+          font-weight: bold;
+
+          --filter-brightness: 1;
+          --filter-sepia: 0;
+          --filter-hue-rotate: 0;
+          --filter-saturate: 1;
+
+          filter: brightness(var(--filter-brightness))
+            sepia(var(--filter-sepia)) hue-rotate(var(--filter-hue-rotate))
+            saturate(var(--filter-saturate));
+
+          border: 2px solid rgba(0, 0, 0, 0.1);
+
+          &.hide {
+            --blur-elevation: 5px;
+            --elevation: 5px;
+            --elevation-minus: calc(-1 * var(--elevation));
+
+            box-shadow: inset var(--elevation-minus) var(--elevation)
+                var(--blur-elevation) 0 hsla(0, 0%, 100%, 0.2),
+              inset var(--elevation) var(--elevation-minus)
+                var(--blur-elevation) 0 hsla(0, 0%, 0%, 0.2);
+
+            &.even {
+              background-color: hsl(204, 60%, 56%);
+            }
+
+            &.odd {
+              background-color: hsl(199, 80%, 25%);
+            }
+
+            &:hover {
+              cursor: pointer;
+              --filter-brightness: 1.4;
+            }
+          }
+
+          &.revealed {
+            text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+
+            &.mine {
+              --filter-sepia: 0.5;
+              --filter-saturate: 5;
+              --filter-hue-rotate: 180deg;
+              box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            }
+
+            &.neighbormines-1 {
+              color: deepskyblue;
+            }
+
+            &.neighbormines-2 {
+              color: deeppink;
+            }
+
+            &.neighbormines-3 {
+              color: greenyellow;
+            }
+
+            &.neighbormines-4 {
+              color: magenta;
+            }
+
+            &.even {
+              background-color: hsl(174, 20%, 56%);
+            }
+
+            &.odd {
+              background-color: hsl(180, 50%, 25%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
