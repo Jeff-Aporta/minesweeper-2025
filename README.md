@@ -13,7 +13,7 @@ Una implementación moderna del clásico juego Buscaminas utilizando React con J
 ## 🚀 Características
 
 - **Interfaz Intuitiva**: Diseño moderno con efectos visuales y animaciones CSS
-- **Jugabilidad Completa**: 
+- **Jugabilidad Completa**:
   - Clic izquierdo para revelar celdas
   - Clic derecho para marcar/desmarcar banderas
   - Doble clic para abrir celdas vecinas automáticamente
@@ -58,6 +58,7 @@ Buscaminas/
 ## 🛠️ Tecnologías Utilizadas
 
 ### Frontend
+
 - **React 18.3.1**: Biblioteca principal para la interfaz de usuario
 - **ReactDOM 18.3.1**: Renderizado del DOM virtual
 - **Babel Standalone 6.26.0**: Transpilación JSX en tiempo real
@@ -66,6 +67,7 @@ Buscaminas/
 - **CSS3**: Estilos modernos con gradientes, sombras y animaciones
 
 ### Características Técnicas
+
 - **Componentes de Clase**: Uso de `React.Component` con ciclo de vida
 - **Estado Local**: Manejo de estado sin librerías externas
 - **Eventos del DOM**: Manejo completo de eventos de mouse
@@ -78,10 +80,10 @@ Buscaminas/
 El juego se puede personalizar modificando las constantes en `src/js/start.js`:
 
 ```javascript
-let WIDTH_BOARD = 10;        // Ancho del tablero (celdas)
-let HEIGHT_BOARD = 10;       // Alto del tablero (celdas)
-let MINES_PERCENT = 0.05;    // Porcentaje de minas (5%)
-const SIDE_CELL = 50;        // Tamaño de cada celda en píxeles
+let WIDTH_BOARD = 10; // Ancho del tablero (celdas)
+let HEIGHT_BOARD = 10; // Alto del tablero (celdas)
+let MINES_PERCENT = 0.05; // Porcentaje de minas (5%)
+const SIDE_CELL = 50; // Tamaño de cada celda en píxeles
 ```
 
 ## 🚀 Instalación y Ejecución
@@ -95,14 +97,17 @@ const SIDE_CELL = 50;        // Tamaño de cada celda en píxeles
 ## 🧠 Algoritmos Implementados
 
 ### Generación del Tablero
+
 - **Distribución Aleatoria**: Las minas se colocan usando `Math.random()`
 - **Algoritmo de Convolución**: Calcula las minas vecinas para cada celda
 
 ### Revelado de Celdas
+
 - **Revelado Recursivo**: Cuando una celda sin minas vecinas se revela, automáticamente revela las celdas adyacentes
 - **Apertura de Vecinos**: Doble clic en celdas numeradas abre automáticamente las celdas vecinas no marcadas
 
 ### Detección de Estados
+
 - **Victoria**: Se verifica que solo queden celdas con minas sin revelar
 - **Derrota**: Se activa al hacer clic en una mina
 
@@ -126,16 +131,21 @@ const SIDE_CELL = 50;        // Tamaño de cada celda en píxeles
 ## 🔧 Funciones Principales
 
 ### `initGameBoard()`
+
 Inicializa el tablero de juego con minas distribuidas aleatoriamente y calcula las minas vecinas.
 
 ### `gameOver()`
+
 Maneja el estado de derrota, revelando todas las minas del tablero.
 
 ### `openIsland({ row, col, recursive })`
+
 Implementa el algoritmo de revelado recursivo para celdas vacías.
 
 ### `successGame()`
+
 Verifica si el jugador ha ganado el juego.
 
 ### `countFlag()`
+
 Cuenta el número total de banderas colocadas en el tablero.
